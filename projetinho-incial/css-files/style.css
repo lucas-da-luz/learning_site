@@ -1,0 +1,76 @@
+/* 1. Global CSS Reset: Removes default browser margins/paddings for consistent layouts across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. CSS Custom Properties (Variables): Allows central control over design tokens for easy maintenance */
+:root {
+    --primary-color: #475768;
+    --background-color: #f7fafc;
+    --text-color: #2d3748;
+    --card-background: #ffffff;
+    --font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Base Body Styling */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    margin-bottom: 24px;
+}
+
+h1 {
+    color: var(--primary-color);
+}
+
+/* Content Layout using Section Styling */
+section {
+    background-color: var(--card-background);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+/* Image Optimization: Ensures images stay responsive and fit within parent containers */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* Button Styling */
+button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #718096;
+}

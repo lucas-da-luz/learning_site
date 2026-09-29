@@ -1,8 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .head-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #F3F4F6;
+    padding: 16px;
+    
+}
+.head-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 40%;
     margin: 0 auto;
+    background-color: #F3F4F6;
+}
+.head-content h3 {
+    color: #1F2937;
+    font-size: 16px;
 }

@@ -6,9 +6,9 @@ While the initial phase focuses on laying down a clean and responsive UI foundat
 
 ## Roadmap & Features in Progress
 
-- [/] HTML5 & CSS3 Structure
-- [/] Responsive layout structure & CSS design system
-- [/] **JavaScript** — Manipulação de DOM e rotas dinâmicas *(In progress)*
+- [x] HTML5 & CSS3 Structure
+- [ ] Responsive layout structure & CSS design system *(In progress)*
+- [ ] **JavaScript** — Manipulação de DOM e rotas dinâmicas *(In progress)*
 - [x] Clean Git workflow & branch management
 - [ ] User registration & authentication logic
 - [ ] Data visualization & code analysis dashboards

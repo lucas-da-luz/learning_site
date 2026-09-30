@@ -9,22 +9,38 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 100%;
     margin: 0 auto;
     background-color: #F3F4F6;
     padding: 16px;
     
 }
+
 .head-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 40%;
+    max-width: 60%;
     margin: 0 auto;
     background-color: #F3F4F6;
 }
+
 .head-content h3 {
+    /* Text styles */
+    white-space: nowrap;
+    font-size: clamp(10px, 2vw, 18px);
     color: #1F2937;
-    font-size: 16px;
+
+    width: fit-content;
+    padding-bottom: 4px;
+
+    border-bottom: 2px solid transparent;
+    transition: all 1s ease-out color;
+    cursor: pointer;
+}
+
+.head-content h3:hover {
+    color: #1f2937;
+    border-bottom-color: #1f2937;
+    position: relative;    
 }

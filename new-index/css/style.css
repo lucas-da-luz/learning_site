@@ -4,43 +4,251 @@
     box-sizing: border-box;
 }
 
-.head-block {
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.nav-menu {
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
+
+    background: linear-gradient(
+        to bottom,
+        #171b1e 0%,
+        #1c2125 40%,
+        #21271c 100%
+    );
+    padding: 0.625rem 80px;
     width: 100%;
-    margin: 0 auto;
-    background-color: #F3F4F6;
-    padding: 16px;
+}
+
+.nav-menu a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
     
+    /* Espaçamento interno fixo e seguro */
+    padding: 0.625rem 1.875rem;
+    border-radius: 0.375rem;
+    
+    /* Transições suaves sem afetar dimensões geométricas */
+    transition: color 0.3s ease, background-color 0.3s ease, font-weight 0.2s ease;
 }
 
-.head-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 60%;
+/* Pseudo-elemento transparente que reserva a largura do estado em negrito */
+.nav-menu a::before {
+    content: attr(data-text);
+    font-weight: bold;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Estado de hover mantendo o tamanho exato da caixa */
+.nav-menu a:hover {
+    color: #2e3944;
+    background-color: rgba(232, 235, 237, 0.984);
+    font-weight: bold;
+}
+
+.nav-menu__logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+/* Container Principal do Rodapé */
+.footer {
+    background-color: #171b1e;
+    color: #ffffff;
+    padding: 3rem 1.5rem 1rem;
+}
+
+/* Grid que organiza as colunas */
+.footer__container {
+    max-width: 1200px;
     margin: 0 auto;
-    background-color: #F3F4F6;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsivo automático! */
+    gap: 2rem;
 }
 
-.head-content h3 {
-    /* Text styles */
-    white-space: nowrap;
-    font-size: clamp(10px, 2vw, 18px);
-    color: #1F2937;
+/* Estilo das listas e links */
+.footer__title {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
 
-    width: fit-content;
-    padding-bottom: 4px;
+.footer__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-    border-bottom: 2px solid transparent;
-    transition: all 1s ease-out color;
+.footer__link {
+    color: #a0aec0;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.footer__link:hover {
+    color: #ffffff;
+}
+
+/* Formulário de Newsletter */
+.footer__form {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.footer__input {
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #2d3748;
+    background-color: #2d3748;
+    color: #fff;
+    width: 100%;
+}
+
+.footer__button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #0d6efd;
+    color: #fff;
     cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
 }
 
-.head-content h3:hover {
-    color: #1f2937;
-    border-bottom-color: #1f2937;
-    position: relative;    
+.footer__button:hover {
+    background-color: #0b5ed7;
+}
+
+/* Linha Inferior */
+.footer__bottom {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid #2d3748;
+    text-align: center;
+    color: #a0aec0;
+    font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   COMPONENT: FEATURES (FLOATING CARDS)
+   ========================================================================== */
+
+/* Main Section Wrapper */
+.features {
+    padding: 5rem 1.5rem;
+    max-width: 75rem; /* 1200px equivalent in rem */
+    margin: 0 auto;
+}
+
+/* Section Header Styles */
+.features__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.features__title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+
+.features__subtitle {
+    font-size: 1rem;
+    color: #a0aec0;
+    max-width: 37.5rem; /* 600px */
+    margin: 0 auto;
+}
+
+/* Responsive Grid layout using CSS Grid */
+.features__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr)); /* Auto-responsive columns */
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/* Base Card Style (The "Floating Balloon") */
+.features__card {
+    background-color: #1e2328;
+    border: 1px solid #2d3748;
+    border-radius: 1rem; /* Rounded corners to mimic floating cards */
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    
+    /* Deep shadow to create the suspended floating illusion */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    
+    /* Smooth transitions for interactive states */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Elevation and glow effect on hover */
+.features__card:hover {
+    transform: translateY(-12px) !important; /* Lifts the card on hover */
+    box-shadow: 0 20px 40px rgba(13, 110, 253, 0.2); /* Subtle blue glow */
+    border-color: #0d6efd;
+}
+
+/* Internal Card Elements */
+.features__icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.features__card-title {
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+
+.features__card-text {
+    font-size: 0.938rem;
+    color: #a0aec0;
+    line-height: 1.6;
+}
+
+/* -------------------------------------------------------------
+   SMOOTH FLOATING ANIMATION (OPTIONAL)
+   Gently shifts cards vertically at slightly different times
+   ------------------------------------------------------------- */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Staggered animation delays for an organic floating motion */
+.features__card--float-1 {
+    animation: float 4s ease-in-out infinite;
+}
+
+.features__card--float-2 {
+    animation: float 4s ease-in-out infinite 1.3s; /* 1.3s delay */
+}
+
+.features__card--float-3 {
+    animation: float 4s ease-in-out infinite 2.6s; /* 2.6s delay */
 }
